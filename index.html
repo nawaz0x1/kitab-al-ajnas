@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" data-view="both">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Kitāb al-Ajnās — The Book of the Races. A bilingual English edition with the divine names in Arabic, English and Bengali.">
+  <title>Kitāb al-Ajnās — The Book of the Races</title>
+  <meta name="theme-color" content="#0e3a2c">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/fonts/fonts.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div class="progress-rail" aria-hidden="true"><span id="progress-bar"></span></div>
+
+  <header class="topbar">
+    <div class="topbar-left">
+      <button class="icon-btn menu-btn" id="menu-btn" aria-label="Open contents" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <a class="brand" href="#cover">
+        <span class="brand-ar">كتاب الأجناس</span>
+        <span class="brand-en">Kitāb al-Ajnās</span>
+      </a>
+    </div>
+
+    <div class="topbar-center" id="current-label">The Book of the Races</div>
+
+    <div class="topbar-right">
+      <div class="segmented" role="group" aria-label="Reading view">
+        <button data-view="en" title="English only">EN</button>
+        <button data-view="ar" title="Arabic only">ع</button>
+        <button data-view="both" title="Parallel view">Both</button>
+      </div>
+      <div class="font-tools" role="group" aria-label="Text size">
+        <button class="icon-btn" id="font-down" data-font="down" aria-label="Decrease text size">A−</button>
+        <button class="icon-btn" id="font-up" data-font="up" aria-label="Increase text size">A+</button>
+      </div>
+      <button class="icon-btn" id="search-btn" aria-label="Search the book">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+      </button>
+      <button class="icon-btn" id="theme-btn" aria-label="Toggle dark mode">
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 15.4A8.5 8.5 0 0 1 8.6 4a8.5 8.5 0 1 0 11.4 11.4Z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="shell">
+    <aside class="sidebar" id="sidebar" aria-label="Contents">
+      <div class="sidebar-inner">
+        <div class="sidebar-head">
+          <p class="eyebrow">Bilingual edition</p>
+          <h2>The Book of<br>the Races</h2>
+          <p class="sidebar-sub">Attributed to Āṣif ibn Barkhiyā</p>
+        </div>
+
+        <button class="search-pill" id="search-pill">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+          <span>Search the book</span>
+          <kbd>⌘K</kbd>
+        </button>
+
+        <div class="sidebar-controls">
+          <div class="sidebar-control">
+            <span>Reading view</span>
+            <div class="segmented" role="group" aria-label="Reading view">
+              <button data-view="en">EN</button>
+              <button data-view="ar">ع</button>
+              <button data-view="both">Both</button>
+            </div>
+          </div>
+          <div class="sidebar-control">
+            <span>Text size</span>
+            <div class="font-tools">
+              <button class="icon-btn" data-font="down" aria-label="Decrease text size">A−</button>
+              <button class="icon-btn" data-font="up" aria-label="Increase text size">A+</button>
+            </div>
+          </div>
+        </div>
+
+        <nav class="toc" id="toc" aria-label="Table of contents"></nav>
+
+        <div class="sidebar-foot">
+          <div class="progress-copy"><span id="progress-label">0% read</span><span id="page-label"></span></div>
+          <div class="progress-track"><span id="sidebar-progress"></span></div>
+          <div class="sidebar-links">
+            <button id="bookmarks-btn">Bookmarks</button>
+            <button id="about-btn">About this edition</button>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <div class="sidebar-scrim" id="sidebar-scrim" hidden></div>
+
+    <main class="reader" id="reader">
+      <!-- Cover -->
+      <section class="cover" id="cover" data-label="Cover">
+        <div class="cover-glow" aria-hidden="true"></div>
+        <div class="cover-grid">
+          <div class="cover-copy">
+            <p class="cover-kicker">A Solomonic grimoire of the Arabic tradition</p>
+            <p class="cover-ar">كتاب الأجناس</p>
+            <h1>Kitāb<br><em>al-Ajnās</em></h1>
+            <p class="cover-subtitle">The Book of the Races</p>
+            <p class="cover-attrib">Attributed to <strong>Āṣif ibn Barkhiyā</strong>,<br>vizier of Prophet Sulaymān</p>
+            <p class="cover-note">Translated into English, with every holy name preserved in Arabic and given in English and Bengali pronunciation.</p>
+            <div class="cover-actions">
+              <a class="btn btn-gold" href="#edition">Begin reading</a>
+              <a class="btn btn-ghost" href="#contents">Contents</a>
+            </div>
+            <div class="cover-meta">
+              <span>200 pages</span><span>Arabic · English · <span class="bn">বাংলা</span></span><span>Reader's edition</span>
+            </div>
+          </div>
+          <div class="cover-art" aria-hidden="true">
+            <div class="cover-frame">
+              <img src="assets/cover.webp" alt="Calligraphic cover of Kitāb al-Ajnās">
+            </div>
+            <div class="cover-ring ring-1"></div>
+            <div class="cover-ring ring-2"></div>
+            <div class="cover-star">✦</div>
+          </div>
+        </div>
+        <a class="cover-scroll" href="#edition" aria-label="Scroll to begin">
+          <span>Open the book</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v15M6 13l6 6 6-6"/></svg>
+        </a>
+      </section>
+
+      <!-- Editorial front matter -->
+      <section class="editorial" id="edition" data-label="About this edition">
+        <header class="editorial-head">
+          <p class="eyebrow">About this edition</p>
+          <h2>A book of names,<br>ranks and seals</h2>
+          <p class="lede">The <em>Kitāb al-Ajnās</em> is a 200-page Arabic Solomonic grimoire attributed to Āṣif ibn Barkhiyā, the legendary vizier of King Solomon. It maps the unseen world as a hierarchy — from the angels around the Throne down to the kings of the jinn — and preserves the names, seals, invocations and ritual conditions attached to each rank.</p>
+        </header>
+
+        <div class="editorial-columns">
+          <article>
+            <h3>What this edition does</h3>
+            <p>This reader presents the complete book in English with the Arabic original alongside it. The translation follows the printed Arabic text closely, including its repetitions, ritual conditions and technical vocabulary. All content chapters have been translated and checked against the printed source. Where the source is damaged or a line is missing, the edition says so rather than inventing text.</p>
+            <p>The holy names are never translated away. Each divine name, angel, jinn king, and non-Arabic <em>voces magicae</em> is kept in Arabic script and supplied with an English transliteration and a Bengali transliteration. The name panels at the end of each chapter collect them in one place.</p>
+          </article>
+          <article>
+            <h3>How to read it</h3>
+            <p>Use the <strong>EN</strong>, <strong>ع</strong> and <strong>Both</strong> controls to choose between the English translation, the Arabic text, and a parallel view. Names with a dotted underline can be clicked for their Arabic form and pronunciation.</p>
+            <p>The page numbers in the margins refer to the 2005 Beirut printing. Talismans, magic squares and seal diagrams are described in the chapter notes where they cannot be represented adequately in plain text.</p>
+          </article>
+        </div>
+
+        <div class="name-key">
+          <div class="name-key-copy">
+            <p class="eyebrow">The name key</p>
+            <h3>One name, three scripts</h3>
+            <p>Every holy name appears in this pattern throughout the book:</p>
+          </div>
+          <div class="name-demo">
+            <div class="demo-ar">الرَّحْمَٰن</div>
+            <div class="demo-row"><span>English</span><strong>Ar-Raḥmān</strong></div>
+            <div class="demo-row"><span>বাংলা</span><strong class="bn">আর-রহমান</strong></div>
+            <div class="demo-row"><span>Meaning</span><strong>The Most Compassionate</strong></div>
+          </div>
+        </div>
+
+        <div class="editorial-note">
+          <p><strong>A note on the text.</strong> This is a work of classical Islamic esoteric literature. It is presented here for historical, religious and literary study, in the form in which it was printed. Nothing in this edition should be read as medical, legal or spiritual advice.</p>
+        </div>
+      </section>
+
+      <!-- The book and its world -->
+      <section class="editorial world" id="world" data-label="The book and its world">
+        <header class="editorial-head">
+          <p class="eyebrow">The book and its world</p>
+          <h2>A hierarchy of<br>kinds and names</h2>
+          <p class="lede"><em>Kitāb al-Ajnās</em> — “The Book of the Races” — belongs to the Solomonic current of Arabic esoteric writing. Its attributed author, Āṣif ibn Barkhiyā, is remembered in Islamic tradition as the courtier of Solomon who brought the throne of the Queen of Sheba “before the twinkling of an eye.” The attribution is traditional rather than documentary: the printed book is a composite that gathers older material on the seven heavens, the angelic hierarchies, the divine names, and the kings of the jinn.</p>
+        </header>
+
+        <div class="editorial-columns">
+          <article>
+            <h3>Why “the races”?</h3>
+            <p>The Arabic word <em>ajnās</em> (singular <em>jins</em>) means “kinds,” “classes,” or “races.” The title reflects the book’s organising idea: the invisible world is not an undifferentiated crowd of spirits but an ordered hierarchy of kinds. Each rank has its own name, seal, planet, day, metal, colour, and presiding king.</p>
+            <p>The seven heavens are arranged in the order of the classical planets, from the seventh heaven of the sun down to the lowest heaven of the moon. Beneath them stand the earthly kings and the jinn who serve them, each with a seal and a set of operations.</p>
+          </article>
+          <article>
+            <h3>Why the names matter</h3>
+            <p>The book is also a name-book. Its invocations preserve Arabic divine names alongside Hebrew and Aramaic theonyms — <span class="ar-inline" dir="rtl">يَاهُو</span> (Yāhū), <span class="ar-inline" dir="rtl">أَهْيَا شَرَاهِيَا</span> (Ehyeh Asher Ehyeh), <span class="ar-inline" dir="rtl">أَدُونَاي</span> (Adonai), <span class="ar-inline" dir="rtl">صَبَاؤُوت</span> (Sabaoth), and <span class="ar-inline" dir="rtl">شَدَّاي</span> (Shaddai) — together with a large repertoire of angelic and jinn names.</p>
+            <p>These names are the operating core of the text. For that reason this edition keeps them in Arabic script and gives English and Bengali transliteration rather than translating them away.</p>
+          </article>
+        </div>
+
+        <div class="editorial-note">
+          <p><strong>The source.</strong> The translation is made from a 200-page printed Arabic edition (Beirut, 2005). The printed source remains the authoritative witness to the Arabic text. The book’s own table of contents is included as an appendix.</p>
+        </div>
+      </section>
+
+      <!-- Contents page -->
+      <section class="contents-page" id="contents" data-label="Contents">
+        <header class="contents-head">
+          <p class="eyebrow">Contents</p>
+          <h2>The shape of<br>the book</h2>
+          <p class="lede">Seven movements, from the angels around the Throne to the great door of the operations. Each chapter can be read in English, in Arabic, or in parallel.</p>
+        </header>
+        <div class="contents-list" id="contents-list"></div>
+      </section>
+
+      <!-- Dynamic book -->
+      <div id="book-content"></div>
+
+      <!-- Names appendix -->
+      <section class="appendix" id="names" data-label="Catalogue of holy names">
+        <header class="appendix-head">
+          <p class="eyebrow">Appendix A</p>
+          <h2>Catalogue of<br>holy names</h2>
+          <p class="lede">The divine names, angels and jinn kings that structure the <em>Kitāb al-Ajnās</em>, with their Arabic forms and English and Bengali pronunciation.</p>
+        </header>
+        <div class="appendix-tools">
+          <input type="search" id="names-filter" placeholder="Filter names, meanings, transliterations…" aria-label="Filter the catalogue of names">
+          <div class="filter-chips" id="name-filters">
+            <button class="active" data-filter="all">All</button>
+            <button data-filter="divine">Divine names</button>
+            <button data-filter="foreign">Holy names</button>
+            <button data-filter="angel">Angels</button>
+            <button data-filter="jinn">Jinn kings</button>
+            <button data-filter="other">Other figures</button>
+          </div>
+        </div>
+        <div class="name-grid" id="name-grid"></div>
+        <p class="empty-state" id="names-empty" hidden>No names match that filter.</p>
+      </section>
+
+      <!-- Colophon -->
+      <section class="colophon" id="colophon" data-label="Colophon">
+        <div class="colophon-mark">✦</div>
+        <p class="eyebrow">Colophon</p>
+        <h2>Kitāb al-Ajnās</h2>
+        <p class="colophon-ar">كتاب الأجناس</p>
+        <p>Translated from the Arabic printed edition (Beirut, 2005).<br>
+        Arabic text preserved from the source; English translation and Bengali transliteration prepared for this edition.</p>
+        <p class="colophon-small">This reader is a study edition. The printed Arabic source remains the authoritative witness to the text.</p>
+        <div class="colophon-links">
+          <a href="#cover">Return to the cover</a>
+          <a href="#names">Catalogue of names</a>
+          <a href="#contents">Contents</a>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Search dialog -->
+  <dialog class="modal search-modal" id="search-modal">
+    <div class="search-box">
+      <div class="search-input-row">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+        <input id="search-input" type="search" placeholder="Search names, chapters, phrases…" autocomplete="off" aria-label="Search">
+        <button class="icon-btn" id="search-close" aria-label="Close search">✕</button>
+      </div>
+      <div class="search-hint"><span>Try “Metatron”, “الرحمن”, “seal”, “Maymun”</span><span><kbd>esc</kbd> to close</span></div>
+      <div class="search-results" id="search-results"></div>
+    </div>
+  </dialog>
+
+  <!-- Name popover -->
+  <div class="name-popover" id="name-popover" hidden role="dialog" aria-live="polite">
+    <button class="popover-close" id="popover-close" aria-label="Close">✕</button>
+    <div class="popover-ar" id="popover-ar"></div>
+    <div class="popover-en" id="popover-en"></div>
+    <div class="popover-bn bn" id="popover-bn"></div>
+    <div class="popover-meaning" id="popover-meaning"></div>
+    <div class="popover-meta" id="popover-meta"></div>
+  </div>
+
+  <script src="data/names.js"></script>
+  <script src="data/book.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
